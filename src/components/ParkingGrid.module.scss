@@ -1,0 +1,179 @@
+.parkingContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f8fafc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  background: rgba(30, 41, 59, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7c3aed;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #f8fafc;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  
+  &.available {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  }
+  
+  &.occupied {
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+  }
+  
+  &.selected {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  }
+  
+  &.disabled {
+    background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+  }
+}
+
+.parkingGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  justify-items: center;
+}
+
+// Responsividade
+@media (max-width: 1024px) {
+  .parkingGrid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.75rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .stats {
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 1.25rem;
+  }
+  
+  .legend {
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+  
+  .parkingGrid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .parkingContainer {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .statItem {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .legend {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .parkingGrid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.25rem;
+    padding: 0.75rem;
+  }
+}
+

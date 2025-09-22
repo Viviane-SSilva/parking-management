@@ -1,0 +1,137 @@
+.parkingSpot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  font-size: 0.75rem;
+  font-weight: 600;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: #f59e0b;
+  }
+  
+  .spotIcon {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+  }
+  
+  .spotNumber {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .vehicleInfo {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    white-space: nowrap;
+    z-index: 10;
+    
+    .plate {
+      color: #fbbf24;
+      font-weight: bold;
+    }
+    
+    .entryTime {
+      color: #94a3b8;
+      font-size: 0.55rem;
+    }
+  }
+}
+
+.available {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  
+  &:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%);
+  }
+}
+
+.occupied {
+  background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+  
+  &:hover {
+    background: linear-gradient(135deg, #f87171 0%, #fca5a5 100%);
+  }
+}
+
+.selected {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  border-color: #fbbf24;
+  
+  &:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+  }
+}
+
+.disabled {
+  background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+  cursor: not-allowed;
+  opacity: 0.6;
+  
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// Responsividade para mobile
+@media (max-width: 768px) {
+  .parkingSpot {
+    width: 60px;
+    height: 60px;
+    
+    .spotIcon {
+      font-size: 1.2rem;
+    }
+    
+    .spotNumber {
+      font-size: 0.6rem;
+    }
+    
+    .vehicleInfo {
+      font-size: 0.5rem;
+      bottom: -20px;
+      
+      .entryTime {
+        font-size: 0.45rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .parkingSpot {
+    width: 50px;
+    height: 50px;
+    
+    .spotIcon {
+      font-size: 1rem;
+    }
+    
+    .spotNumber {
+      font-size: 0.55rem;
+    }
+  }
+}
+
