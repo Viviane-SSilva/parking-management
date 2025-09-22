@@ -22,12 +22,32 @@ interface ParkingGridProps {
 const ParkingGrid: React.FC<ParkingGridProps> = ({ totalSpots = 50 }) => {
   const [spots, setSpots] = useState<ParkingSpotData[]>([]);
 
+
+  const exampleSpots: ParkingSpotData[] = [
+    {
+      id: 'spot-1',
+      spotNumber: 1,
+      status: 'occupied',
+      vehicleInfo: {
+        plate: 'ABC-1234',
+        entryTime: '10:30'
+      }
+    },
+    {
+      id: 'spot-2',
+      spotNumber: 2,
+      status: 'available'
+    }
+  ];
+     
+
   useEffect(() => {
     // Inicializar as vagas
     const initialSpots: ParkingSpotData[] = [];
-    for (let i = 1; i <= totalSpots; i++) {
+    for (let i = 1; i <= 3; i++) {
       // Simular algumas vagas ocupadas para demonstração
       const isOccupied = Math.random() < 0.3; // 30% das vagas ocupadas
+
       initialSpots.push({
         id: `spot-${i}`,
         spotNumber: i,
@@ -38,7 +58,7 @@ const ParkingGrid: React.FC<ParkingGridProps> = ({ totalSpots = 50 }) => {
         } : undefined
       });
     }
-    setSpots(initialSpots);
+    setSpots(exampleSpots);
   }, [totalSpots]);
 
   const handleSpotClick = (spotId: string) => {
