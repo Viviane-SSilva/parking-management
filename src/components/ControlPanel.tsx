@@ -27,6 +27,18 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       onAddVehicle(parseInt(selectedSpot), vehiclePlate.trim().toUpperCase());
       setSelectedSpot('');
       setVehiclePlate('');
+
+      const wave =  {
+      id: 'spot-1',
+      spotNumber: selectedSpot,
+      status: 'occupied',
+      vehicleInfo: {
+        plate: vehiclePlate,
+        entryTime: new Date().toLocaleTimeString()
+      }
+      };
+
+      console.log(wave); // Log para depuração  
     }
   };
 
@@ -58,7 +70,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         </button>
         <button 
           className={`${styles.tab} ${activeTab === 'remove' ? styles.active : ''}`}
-          onClick={() => setActiveTab('remove')}
+          onClick={() => setActiveTab('remove')}setVehiclePlate
         >
           ➖ Remover Veículo
         </button>
